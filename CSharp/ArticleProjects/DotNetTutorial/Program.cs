@@ -9,17 +9,12 @@ namespace Microsoft.Azure.Batch.Samples.DotNetTutorial
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
-    using Microsoft.Azure.Batch;
-    using Microsoft.Azure.Batch.Auth;
-    using Microsoft.Azure.Batch.Common;
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using Microsoft.Azure.Batch.Samples.DotNetTutorial.TaskApplication;
+    using Batch;
+    using Auth;
+    using Common;
+    using WindowsAzure.Storage;
+    using WindowsAzure.Storage.Blob;
 
     public class Program
     {
@@ -27,16 +22,16 @@ namespace Microsoft.Azure.Batch.Samples.DotNetTutorial
         // These are used when constructing connection strings for the Batch and Storage client objects.
 
         // Batch account credentials
-        private const string BatchAccountName = "";
-        private const string BatchAccountKey  = "";
-        private const string BatchAccountUrl  = "";
+        private const string BatchAccountName = "coman";
+        private const string BatchAccountKey = "mpgIXIkoJdBUoHlqVAKs+QbXJzN9rZTPhfDG6kuoRaVyDZouYDE5WRZjmFUQdHir6fAhxezLz5OfWcUNR40PoA==";
+        private const string BatchAccountUrl = "https://coman.westeurope.batch.azure.com";
 
         // Storage account credentials
-        private const string StorageAccountName = "";
-        private const string StorageAccountKey  = "";
-        
+        private const string StorageAccountName = "coman";
+        private const string StorageAccountKey = "h4L5PobVYAyt0hkzYDpy2fvm9pwznVIwxNWyZwj2YU77HM4V5kKraTRIdiZ3UMVDctUbprCcBK28ZUXEnbNbJQ==";
+
         private const string PoolId = "DotNetTutorialPool";
-        private const string JobId  = "DotNetTutorialJob";
+        private const string JobId = "DotNetTutorialJob";
 
         public static void Main(string[] args)
         {
@@ -475,7 +470,7 @@ namespace Microsoft.Azure.Batch.Samples.DotNetTutorial
             foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
             {
                 // Retrieve reference to the current blob
-                CloudBlob blob = (CloudBlob)item;
+                CloudBlockBlob blob = (CloudBlockBlob)item;
 
                 // Save blob contents to a file in the specified folder
                 string localOutputFile = Path.Combine(directoryPath, blob.Name);

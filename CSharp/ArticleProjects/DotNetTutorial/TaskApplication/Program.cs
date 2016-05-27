@@ -1,5 +1,8 @@
 ﻿// Copyright (c) Microsoft Corporation
 
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+
 namespace Microsoft.Azure.Batch.Samples.DotNetTutorial.TaskApplication
 {
     using System;
@@ -8,8 +11,6 @@ namespace Microsoft.Azure.Batch.Samples.DotNetTutorial.TaskApplication
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
 
     /// <summary>
     /// This application is executed by a job's tasks. It evaluates the text within a
