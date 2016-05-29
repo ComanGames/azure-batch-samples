@@ -18,9 +18,6 @@ namespace Microsoft.Azure.Batch.Samples.DotNetTutorial
 
     public class Program
     {
-        // Update the Batch and Storage account credential strings below with the values unique to your accounts.
-        // These are used when constructing connection strings for the Batch and Storage client objects.
-
         // Batch account credentials
         private const string BatchAccountName = "coman";
         private const string BatchAccountKey = "mpgIXIkoJdBUoHlqVAKs+QbXJzN9rZTPhfDG6kuoRaVyDZouYDE5WRZjmFUQdHir6fAhxezLz5OfWcUNR40PoA==";
